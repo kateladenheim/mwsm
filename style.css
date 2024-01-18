@@ -1,0 +1,183 @@
+.conference-header img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* This ensures that the image is centered if it has to scale down */
+    margin: 0 auto; /* This centers the image in the container */
+}
+
+.schedule {
+    width: 90%;
+    margin: 0 auto;
+    font-family: "interstate", sans-serif;
+}
+
+h1, h2, h3 {
+    text-align: left;
+    font-family: "cy", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    line-height: 58px;
+}
+
+h2 {
+    font-size: 36px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+p {
+    font-family: "interstate", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+
+i {
+    font-family: "interstate", sans-serif;
+    font-style: italic !important;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+
+a {
+    color:#2BB673;
+    text-decoration: none;
+}
+
+/* a:hover {
+    text-decoration: underline;
+    text-decoration-color: #2BB673;
+} */
+
+.register-link {
+    position: relative;
+    display: inline-block; /* Necessary for the positioning of pseudo-elements */
+    text-decoration: none; /* Remove the default underline */
+}
+
+.register-link::after, .register-link::before {
+    content: '';
+    position: absolute;
+    transition: all 0.3s ease; /* Adjust timing as needed */
+}
+
+/* Underline animation */
+.register-link::after {
+    left: 0;
+    bottom: -2px; /* Adjust as needed */
+    width: 0;
+    height: 1px; /* Adjust thickness of underline */
+    background: #2BB673; /* Adjust color of underline */
+}
+
+/* Plus sign animation */
+.register-link::before {
+    content: '+';
+    right: -20px; /* Adjust spacing from the text */
+    bottom: 0;
+    opacity: 0; /* Start with hidden plus */
+    transform: scale(0); /* Start with scaled down plus */
+}
+
+/* Animations on hover */
+.register-link:hover::after {
+    width: 100%; /* Fill the underline */
+}
+
+.register-link:hover::before {
+    opacity: 1; /* Show the plus */
+    transform: scale(1); /* Scale up the plus */
+}
+
+
+
+.day {
+    margin-bottom: 20px;
+}
+
+.session {
+    display: flex;
+    margin-bottom: 25px;
+    border-top: 1px solid #2BB673;
+}
+
+.time-location {
+    flex: 1;
+    padding-right: 20px;
+    padding-top: 10px;
+    text-align: left;
+}
+
+.time-location p {
+    padding-bottom: 10px;
+    margin: 0;
+}
+
+.details {
+    flex: 3;
+}
+
+.toggle {
+    background-color: #2BB673;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 24px;
+    cursor: pointer;
+    font-family: "cy", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.ledby {
+    font-family: 'cy';
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.description {
+    display: none;
+    padding: 10px;
+    border: 1px solid #2BB673;
+    margin-top: 5px;
+}
+
+.toggle.active + .description {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .session {
+        flex-direction: column;
+    }
+
+    .time-location, .details {
+        text-align: left;
+    }
+
+    .register-link::before {
+        right: -5%; /* Decrease the space to the right of the plus sign */
+    }
+}
+
+@media (max-width: 547px) {
+    .register-link::before {
+        right: 0%; /* Decrease the space to the right of the plus sign */
+    }
+}
+
+.plus-icon {
+    margin-right: 5px; /* Adds some space between the icon and the text */
+    /* Add additional styles as needed */
+}

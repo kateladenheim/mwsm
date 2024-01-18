@@ -202,9 +202,9 @@ li {
 .footer-links a {
     display: inline-block;
     margin: 10px;
-    color:#2BB673;
+    /* color:#2BB673;
     text-decoration: underline;
-    text-transform: uppercase;
+    text-transform: uppercase; */
 }
 
 .footer-text {

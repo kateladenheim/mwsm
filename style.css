@@ -33,11 +33,20 @@ h3 {
     font-size: 22px;
 }
 
+#datetop {
+    margin-bottom: 0;
+}
+
+#datebottom {
+    margin-top: 0;
+}
+
 p {
     font-family: "interstate", sans-serif;
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
+    line-height: 28px;
 }
 
 i {
@@ -49,14 +58,37 @@ i {
 }
 
 a {
+    position: relative;
+    display: inline-block; /* Required for positioning the pseudo-element */
+    text-decoration: none; /* Removes the default underline */
+    color: #000; /* Adjust the color as needed */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
     color:#2BB673;
-    text-decoration: none;
 }
 
-/* a:hover {
-    text-decoration: underline;
-    text-decoration-color: #2BB673;
-} */
+a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 3px; /* Adjust as needed based on font size */
+    left: 0;
+    background-color: #2BB673; /* The underline color */
+    transition: width 0.3s ease; /* Easing animation for the underline */
+    pointer-events: none; /* Ensures the pseudo-element doesn't interfere with link interaction */
+}
+
+a:hover::after {
+    width: 100%; /* Full width on hover */
+}
+
+li {
+    font-family: "interstate", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 28px;
+}
 
 .register-link {
     position: relative;
@@ -98,10 +130,9 @@ a {
     transform: scale(1); /* Scale up the plus */
 }
 
-
-
 .day {
     margin-bottom: 20px;
+    padding-top: 15px;
 }
 
 .session {
@@ -157,6 +188,33 @@ a {
     display: block;
 }
 
+.conference-footer {
+    text-align: center;
+    padding-top: 65px;
+    padding-bottom: 25px;
+}
+
+.footer-logos img {
+    max-width: 100px; /* Adjust based on your logo size */
+    margin: 0 10px; /* Adjust spacing around logos */
+}
+
+.footer-links a {
+    display: inline-block;
+    margin: 10px;
+    color:#2BB673;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #000; /* Example text color */
+}
+
+
+
 @media (max-width: 768px) {
     .session {
         flex-direction: column;
@@ -168,6 +226,16 @@ a {
 
     .register-link::before {
         right: -5%; /* Decrease the space to the right of the plus sign */
+    }
+
+    a {
+        text-decoration: underline;
+        text-decoration-color: #2BB673;
+        transition: none; /* No transition on mobile */
+    }
+
+    a::after {
+        display: none; /* Hide the pseudo-element underline on mobile */
     }
 }
 

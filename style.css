@@ -159,6 +159,7 @@ li {
 
 .toggle {
     background-color: #2BB673;
+    color: #000; 
     border: none;
     padding: 10px;
     width: 100%;
